@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\views\\home\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\home\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\models\\employeedept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\employeedept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\models\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|c:\\users\\akhba\\source\\repos\\webapplication1\\webapplication1\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33A9DF26-F1ED-4F5B-B414-420847FF9721}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "WebApplication1\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "WebApplication1\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-22T01:30:50.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Home\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Edit.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Home\\Edit.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAA0AAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-21T21:22:10.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Home\\Create.cshtml",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Create.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Home\\Create.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T14:15:56.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAuwIoAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T11:06:10.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T11:37:48.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\Employee.cs",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\Employee.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\Employee.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAowBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T03:35:14.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Gender.cs",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\Gender.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\Gender.cs",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\Gender.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\Gender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T00:31:15.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAkwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T11:57:56.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Department.cs",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\Department.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\Department.cs",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\Department.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T11:53:28.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmployeeDept.cs",
+              "DocumentMoniker": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\EmployeeDept.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\EmployeeDept.cs",
+              "ToolTip": "C:\\Users\\akhba\\source\\repos\\WebApplication1\\WebApplication1\\Models\\EmployeeDept.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\EmployeeDept.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T12:11:55.425Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

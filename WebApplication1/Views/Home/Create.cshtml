@@ -1,0 +1,54 @@
+﻿@model WebApplication1.Models.Employee
+@{
+    ViewData["Title"] = "Add Employee Data";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Home" asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="SesaId" class="form-label">SESA ID</label>
+                <input asp-for="SesaId" class="form-control" placeholder="Example: SESA123456" />
+                <span asp-validation-for="SesaId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Name..." />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="BirthDate" class="form-label">Birth Date</label>
+                <input asp-for="BirthDate" type="date" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="GenderCode" class="form-label">Gender</label>
+                <select asp-for="GenderCode" asp-items="ViewBag.GenderList" class="form-select">
+                    <option value="">-- Select Gender --</option>
+                </select>
+                <span asp-validation-for="GenderCode" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="DepartmentCode" class="form-label">Department</label>
+                <select name="DepartmentCode" class="form-select">
+                    <option value="">-- Select Department --</option>
+                    @foreach (var dept in (ViewBag.DepartmentList as SelectList ?? new SelectList(Enumerable.Empty<SelectListItem>(), "Value", "Text")))
+                    {
+                        <option value="@dept.Value">@dept.Text</option>
+                    }
+                </select>
+                <span class="text-danger">
+                    @Html.ValidationMessage("DepartmentCode", "", new { @class = "text-danger" })
+                </span>
+            </div>
+
+            <div class="form-group mt-4">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
