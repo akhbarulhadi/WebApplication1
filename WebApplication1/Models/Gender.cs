@@ -2,9 +2,10 @@
 
 namespace WebApplication1.Models
 {
-    public class Gender
+    public class Genders
     {
         [Key]
+        [RegularExpression("^[^\\s]+$", ErrorMessage = "Gender Code must not contain spaces.")]
         public char GenderCode { get; set; }
 
         [Required]

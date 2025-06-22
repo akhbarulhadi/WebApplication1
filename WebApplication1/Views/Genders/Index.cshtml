@@ -1,18 +1,19 @@
-﻿@model IEnumerable<WebApplication1.Models.EmployeeDept>
+﻿@model IEnumerable<WebApplication1.Models.Genders>
 
 @{
-    ViewData["Title"] = "Employee Data";
+    ViewData["Title"] = "Gender List";
 }
 
 <div class="container">
     <div class="d-flex justify-content-between">
-        <h2 class="mb-4">Employee Data</h2>
+        <h2 class="mb-4">Gender List</h2>
         <p>
-            <a asp-controller="Home" asp-action="Create" class="btn btn-success">
-                <i class="fas fa-plus"></i> Add New Employee
+            <a asp-controller="Genders" asp-action="Create" class="btn btn-success">
+                <i class="fas fa-plus"></i> Add New Gender
             </a>
         </p>
     </div>
+
     @if (TempData["SuccessMessage"] != null)
     {
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,10 +26,8 @@
         <table class="table table-bordered border-dark">
             <thead>
                 <tr class="text-white bg-se-green">
-                    <th class="text-center align-middle">SESA ID</th>
-                    <th class="text-center align-middle">Name</th>
+                    <th class="text-center align-middle">Gender Code</th>
                     <th class="text-center align-middle">Gender</th>
-                    <th class="text-center align-middle">Department</th>
                     <th class="text-center align-middle">Action</th>
                 </tr>
             </thead>
@@ -36,13 +35,11 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="align-middle">@item.SesaId</td>
-                        <td class="align-middle">@item.Employee?.Name</td>
-                        <td class="align-middle">@item.Employee?.Genders?.GenderNm</td>
-                        <td class="align-middle">@item.Department?.DepartmentNm</td>
+                        <td class="align-middle">@item.GenderCode</td>
+                        <td class="align-middle">@item.GenderNm</td>
                         <td class="text-center align-middle">
-                            <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.SesaId" class="btn btn-sm btn-warning text-dark fw-bold mx-1">Edit</a>
-                            <button class="btn btn-sm btn-danger fw-bold mx-1" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal-@item.Employee?.SesaId">Delete</button>
+                            <a asp-controller="Genders" asp-action="Edit" asp-route-id="@item.GenderCode" class="btn btn-sm btn-warning text-dark fw-bold mx-1">Edit</a>
+                            <button class="btn btn-sm btn-danger fw-bold mx-1" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal-@item.GenderCode">Delete</button>
                         </td>
                     </tr>
                 }
@@ -52,7 +49,7 @@
 </div>
 @foreach (var item in Model)
 {
-    <div class="modal fade" id="deleteConfirmModal-@item.Employee?.SesaId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteConfirmModal-@item.GenderCode" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-secondary">
                 <div class="modal-body text-center p-4">
@@ -60,11 +57,11 @@
                         <span class="text-warning display-4 fw-bold">!</span>
                     </div>
                     <h4 class="fw-bold" id="deleteConfirmModalLabel">Delete this data?</h4>
-                    <p class="text-secondary">Are you sure you want to delete <strong>@item.Employee?.Name</strong>?</p>
+                    <p class="text-secondary">Are you sure you want to delete <strong>@item.GenderNm</strong>?</p>
                     <div class="mt-4">
                         <form asp-action="Delete" method="post">
                             @Html.AntiForgeryToken()
-                            <input type="hidden" name="sesaId" value="@item.Employee?.SesaId" />
+                            <input type="hidden" name="genderCode" value="@item.GenderCode" />
                             <button type="submit" class="btn btn-success fw-bold mx-2 px-4">Yes!</button>
                             <button type="button" class="btn btn-danger fw-bold mx-2 px-4" data-bs-dismiss="modal">No!</button>
                         </form>

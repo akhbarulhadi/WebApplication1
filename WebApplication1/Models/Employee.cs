@@ -6,6 +6,7 @@ namespace WebApplication1.Models
     public class Employee
     {
         [Key]
+        [RegularExpression("^[^\\s]+$", ErrorMessage = "SESA ID must not contain spaces.")]
         public required string SesaId { get; set; }
 
         [Required]
@@ -18,7 +19,7 @@ namespace WebApplication1.Models
         public required char GenderCode { get; set; }
 
         [ForeignKey(nameof(GenderCode))]
-        public Gender? Genders { get; set; }
+        public Genders? Genders { get; set; }
 
     }
 }

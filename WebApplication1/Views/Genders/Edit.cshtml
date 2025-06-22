@@ -1,0 +1,29 @@
+﻿@model WebApplication1.Models.Genders
+@{
+    ViewData["Title"] = "Edit Gender Data";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Genders" asp-action="Edit" method="post">
+            <div class="mb-3">
+                <label asp-for="GenderCode" class="form-label">Gender Code</label>
+                <input asp-for="GenderCode" class="form-control" placeholder="" readonly/>
+                <span asp-validation-for="GenderCode" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="GenderNm" class="form-label">Gender</label>
+                <input asp-for="GenderNm" class="form-control" placeholder="" />
+                <span asp-validation-for="GenderNm" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-4">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-controller="Genders" asp-action="Index" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>

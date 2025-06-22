@@ -6,6 +6,7 @@ namespace WebApplication1.Models
     public class EmployeeDept
     {
         [Key]
+        [RegularExpression("^[^\\s]+$", ErrorMessage = "SESA ID Code must not contain spaces.")]
         public required string SesaId { get; set; }
 
         [Required]

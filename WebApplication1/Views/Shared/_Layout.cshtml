@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,14 +11,37 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="d-flex">
-        <nav class="vh-100 d-flex flex-column align-items-center bg-dark p-3 w-sb flex-shrink-0">
-            <a href="#">
-                <img src="~/SCHNEIDER-SM.png" alt="Sidebar Logo" class="w-100">
+        <nav class="vh-100 d-flex flex-column align-items-center bg-dark p-3 flex-shrink-0" style="width: 80px;">
+            <a href="#" class="mb-4">
+                <img src="~/SCHNEIDER-SM.png" alt="Sidebar Logo" class="img-fluid">
             </a>
+
+            <ul class="nav nav-pills flex-column mb-auto text-center w-100">
+                <li class="nav-item mb-3">
+                    <a asp-controller="Home" asp-action="Index"
+                       class="nav-link text-white px-2 py-3 @(currentController == "Home" ? "active bg-primary" : "")" title="Employee Data">
+                        <i class="fas fa-user-tie fa-lg"></i>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a asp-controller="Genders" asp-action="Index"
+                       class="nav-link px-2 py-3 text-white @(currentController == "Genders" ? "active bg-primary" : "")" title="Gender List">
+                        <i class="fas fa-venus-mars fa-lg"></i>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a asp-controller="Department" asp-action="Index"
+                       class="nav-link text-white px-2 py-3 @(currentController == "Department" ? "active bg-primary" : "")" title="Department Data">
+                        <i class="fas fa-building fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
         </nav>
+
         <div class="flex-grow-1 d-flex flex-column">
             <header>
                 <nav class="navbar navbar-expand-sm navbar-dark bg-se-green border-bottom box-shadow mb-3">
