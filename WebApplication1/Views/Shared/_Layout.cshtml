@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApplication1</title>
+    <link rel="icon" href="~/SCHNEIDER-SM.png" type="image/png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
@@ -15,7 +16,7 @@
 </head>
 <body>
     <div class="d-flex">
-        <nav class="vh-100 d-flex flex-column align-items-center bg-dark p-3 flex-shrink-0" style="width: 80px;">
+        <nav class="min-vh-100 d-flex flex-column align-items-center bg-dark p-3 flex-shrink-0" style="width: 80px;">
             <a href="#" class="mb-4">
                 <img src="~/SCHNEIDER-SM.png" alt="Sidebar Logo" class="img-fluid">
             </a>
@@ -23,7 +24,19 @@
             <ul class="nav nav-pills flex-column mb-auto text-center w-100">
                 <li class="nav-item mb-3">
                     <a asp-controller="Home" asp-action="Index"
-                       class="nav-link text-white px-2 py-3 @(currentController == "Home" ? "active bg-primary" : "")" title="Employee Data">
+                       class="nav-link text-white px-2 py-3 @(currentController == "Home" ? "active bg-primary" : "")" title="Dashboard">
+                        <i class="fas fa-chart-line fa-lg"></i>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a asp-controller="ChartJs" asp-action="Index"
+                       class="nav-link text-white px-2 py-3 @(currentController == "ChartJs" ? "active bg-primary" : "")" title="Chart Js">
+                        <i class="fas fa-chart-line fa-lg"></i>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a asp-controller="Employee" asp-action="Index"
+                       class="nav-link text-white px-2 py-3 @(currentController == "Employee" ? "active bg-primary" : "")" title="Employee Data">
                         <i class="fas fa-user-tie fa-lg"></i>
                     </a>
                 </li>
@@ -43,7 +56,7 @@
         </nav>
 
         <div class="flex-grow-1 d-flex flex-column">
-            <header>
+            <header class="" style="position: sticky; top: 0; z-index: 1000;">
                 <nav class="navbar navbar-expand-sm navbar-dark bg-se-green border-bottom box-shadow mb-3">
                     <div class="container-fluid d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">

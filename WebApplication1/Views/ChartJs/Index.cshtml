@@ -1,0 +1,46 @@
+﻿@using WebApplication1.ViewModels
+@model ChartVM
+@{
+    ViewData["Title"] = "ChartsJs";
+}
+
+<div class="container">
+    <h2 class="mb-4">Chart Js</h2>
+    <div class="mt-4">
+        <h4>Bar Chart</h4>
+        <canvas 
+            id="barChart"
+            data-chart-model="@System.Text.Json.JsonSerializer.Serialize(Model.DepartmentData)">
+        </canvas>
+    </div>
+    <div class="mt-4 col-xl-5">
+        <h4>Pie Chart</h4>
+        <canvas id="pieChart"
+                data-chart-model="@System.Text.Json.JsonSerializer.Serialize(Model.GenderData)">
+        </canvas>
+    </div>
+    <div class="mt-4">
+        <h4>Doughnut Chart</h4>
+        <canvas id="doughnutChart"></canvas>
+    </div>
+    <div class="mt-4">
+        <h4>Line Chart</h4>
+        <canvas id="lineChart"></canvas>
+    </div>
+    <div class="mt-4">
+        <h4>Polar Area Chart</h4>
+        <canvas id="polarAreaChart"></canvas>
+    </div>
+    <div class="mt-4">
+        <h4>Radar Chart</h4>
+        <canvas id="radarChart"></canvas>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+@section Scripts {
+    <script src="~/js/chart.js" asp-append-version="true"></script>
+    <script src="~/js/barChart.js" asp-append-version="true"></script>
+    <script src="~/js/pieChart.js" asp-append-version="true"></script>
+
+}

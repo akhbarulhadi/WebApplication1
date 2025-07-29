@@ -13,8 +13,8 @@ namespace WebApplication1.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allDepartment = await _context.Department
-                .OrderBy(item => item.DepartmentCode)
+            var allDepartment = await _context.DepartmentVM
+                .FromSqlRaw("EXEC GetDepartment")
                 .ToListAsync();
             return View(allDepartment);
         }

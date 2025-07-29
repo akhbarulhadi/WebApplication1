@@ -1,5 +1,9 @@
-using WebApplication1.Data;
+using Dapper;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Data;
+
+
+SqlMapper.AddTypeHandler(new DateOnlyTypeHandler());
 
 var builder = WebApplication.CreateBuilder(args);
 

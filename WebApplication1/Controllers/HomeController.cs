@@ -1,150 +1,156 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Dapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
+using ScottPlot;
 using WebApplication1.Data;
-using WebApplication1.Models;
+using WebApplication1.ViewModels;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController(ApplicationDbContext context) : Controller
+    public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context = context;
+        private readonly ApplicationDbContext _context;
 
-        public async Task<IActionResult> Index()
+        public HomeController(ApplicationDbContext context)
         {
-            var allEmployee = await _context.EmployeeDept
-                .Include(item => item.Employee!)
-                 .ThenInclude(item => item.Genders)
-                .Include(item => item.Department)
-                .OrderBy(item => item.Employee!.SesaId)
-                .ToListAsync();
-            return View(allEmployee);
+            _context = context;
         }
 
-        private void LoadDropdownData(string? selectedDeptCode = null, char? selectedGenderCode = null)
+        public IActionResult Index()
         {
-            ViewBag.GenderList = new SelectList(
-                _context.Genders.AsNoTracking(), "GenderCode", "GenderNm", selectedGenderCode);
-
-            ViewBag.DepartmentList = new SelectList(
-                _context.Department.AsNoTracking(), "DepartmentCode", "DepartmentNm", selectedDeptCode);
-        }
-        private void ValidateDepartmentCode(string? departmentCode)
-        {
-            if (string.IsNullOrWhiteSpace(departmentCode))
-                ModelState.AddModelError("DepartmentCode", "Please select a department.");
-        }
-
-        public IActionResult Create()
-        {
-            LoadDropdownData();
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Employee employee)
+        [Obsolete]
+        public async Task<IActionResult> DepartmentChart()
         {
-            var departmentCode = Request.Form["DepartmentCode"].ToString();
+            IEnumerable<DepartmentChartVM> chartData;
 
-            ValidateDepartmentCode(departmentCode);
-
-            if (await _context.Employee.AnyAsync(e => e.SesaId == employee.SesaId))
-                ModelState.AddModelError("SesaId", "SESA ID already exists.");
-
-            if (!ModelState.IsValid)
+            using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
             {
-                LoadDropdownData(departmentCode, employee.GenderCode);
-                return View(employee);
+                chartData = await connection.QueryAsync<DepartmentChartVM>(
+                    "chartDepartment",
+                    commandType: System.Data.CommandType.StoredProcedure);
             }
 
-            _context.Employee.Add(employee);
-            await _context.SaveChangesAsync();
+            var labels = chartData.Select(d => d.DepartmentNm).ToArray();
+            var values = chartData.Select(d => (double)d.TotalEmployees).ToArray();
 
-            _context.EmployeeDept.Add(new EmployeeDept
+            var plt = new ScottPlot.Plot();
+            plt.Title("Jumlah Karyawan per Departemen");
+
+            var barPlot = plt.Add.Bars(values);
+            barPlot.Color = Colors.SteelBlue;
+            barPlot.ValueLabelStyle.IsVisible = true;
+            barPlot.ValueLabelStyle.ForeColor = Colors.White;
+            barPlot.ValueLabelStyle.Bold = true;
+
+            // Tambahkan teks secara manual di bawah setiap bar
+            for (int i = 0; i < values.Length; i++)
             {
-                SesaId = employee.SesaId,
-                DepartmentCode = departmentCode
-            });
-            await _context.SaveChangesAsync();
+                // Tambahkan teks dan simpan sebagai variabel
+                //ini unutk posisi di dalam bar
+                //var textPlot = plt.Add.Text(values[i].ToString(), i, 0);
+                // ini unut posisi diatas bar
+                var textPlot = plt.Add.Text(values[i].ToString(), i, values[i]);
 
-            TempData["SuccessMessage"] = "Data has been successfully saved!";
-            return RedirectToAction(nameof(Index));
-        }
+                // FIX: Atur perataan agar pas di tengah bawah
+                textPlot.Alignment = Alignment.LowerCenter;
 
-        public async Task<IActionResult> Edit(string? id)
-        {
-            if (string.IsNullOrEmpty(id))
-                return NotFound();
-
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee == null)
-                return NotFound();
-
-            var employeeDept = await _context.EmployeeDept.FindAsync(id);
-            string? selectedDeptCode = employeeDept?.DepartmentCode;
-
-            LoadDropdownData(selectedDeptCode, employee.GenderCode);
-            return View(employee);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Employee employee)
-        {
-            var departmentCode = Request.Form["DepartmentCode"].ToString();
-
-            ValidateDepartmentCode(departmentCode);
-
-            if (!ModelState.IsValid)
-            {
-                LoadDropdownData(departmentCode, employee.GenderCode);
-                return View(employee);
+                // Opsional: Atur juga properti lain agar lebih jelas
+                textPlot.FontSize = 15;
+                textPlot.Bold = false;
             }
 
-            var existing = await _context.Employee.FindAsync(employee.SesaId);
-            if (existing == null)
-                return NotFound();
+            // Pengaturan label nama departemen (tidak diubah)
+            var ticks = labels.Select((label, index) => new Tick(index, label)).ToArray();
 
-            existing.Name = employee.Name;
-            existing.BirthDate = employee.BirthDate;
-            existing.GenderCode = employee.GenderCode;
+            plt.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.NumericManual(ticks);
+            plt.Axes.Bottom.TickLabelStyle.Rotation = 0;
+            plt.Axes.Bottom.MajorTickStyle.Length = 0;
+            plt.Axes.Bottom.TickLabelStyle.Alignment = Alignment.MiddleCenter;
+            plt.Axes.Margins(top: 0.1);
 
-            var employeeDept = await _context.EmployeeDept.FindAsync(employee.SesaId);
-            if (employeeDept != null)
+            plt.Axes.SetLimits(bottom: 0);
+
+            byte[] imageBytes = plt.GetImageBytes(600, 400);
+            return File(imageBytes, "image/png");
+        }
+
+        public async Task<IActionResult> GenderChart()
+        {
+            IEnumerable<GenderChartVM> chartData;
+
+            using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
             {
-                employeeDept.DepartmentCode = departmentCode;
+                chartData = await connection.QueryAsync<GenderChartVM>(
+                    "chartGender",
+                    commandType: System.Data.CommandType.StoredProcedure
+                );
             }
 
-            await _context.SaveChangesAsync();
+            var labels = chartData.Select(d => d.GenderNm).ToArray();
+            var values = chartData.Select(d => (double)d.TotalGenders).ToArray();
 
-            TempData["SuccessMessage"] = "Data has been successfully updated!";
-            return RedirectToAction(nameof(Index));
-        }
+            ScottPlot.Color[] customColors = labels.Select(label =>
+                label.ToLower() switch
+                {
+                    "male" => Colors.Gold,
+                    "female" => Colors.IndianRed,
+                    _ => Colors.Gray
+                }).ToArray();
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(string sesaId)
-        {
-            var employeeDept = await _context.EmployeeDept.FindAsync(sesaId);
-            if (employeeDept != null)
-                _context.EmployeeDept.Remove(employeeDept);
+            var plt = new ScottPlot.Plot();
+            // HAPUS BARIS INI:
+            // plt.Title("Distribusi Gender");
 
-            var employee = await _context.Employee.FindAsync(sesaId);
-            if (employee != null)
-                _context.Employee.Remove(employee);
+            // FIX 1: Tambahkan judul secara manual menggunakan Text plottable
+            var title = plt.Add.Text("Distribusi Gender", 0, 1);
+            title.FontSize = 17;
+            title.Bold = true;
+            title.Alignment = Alignment.LowerCenter;
 
-            await _context.SaveChangesAsync();
-            TempData["SuccessMessage"] = "Successfully deleted!";
-            return RedirectToAction(nameof(Index));
-        }
+            // FIX: Buat dan konfigurasikan List<PieSlice> terlebih dahulu
+            List<PieSlice> slices = new();
+            for (int i = 0; i < values.Length; i++)
+            {
+                var newSlice = new PieSlice()
+                {
+                    Value = values[i],
+                    // Atur teks DI DALAM slice
+                    Label = values[i].ToString(),
+                    // Atur teks UNTUK LEGENDA
+                    LegendText = labels[i],
+                    // FIX: Atur ukuran font untuk label di dalam slice
+                    LabelFontSize = 20,
+                    // Tebal
+                    LabelBold = true
+                };
+                newSlice.Fill.Color = customColors[i];
+                slices.Add(newSlice);
+            }
 
+            // FIX: Tambahkan List<PieSlice> yang sudah jadi ke dalam plot
+            var pie = plt.Add.Pie(slices);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            // Atur radius untuk memperbesar ukuran pie chart
+            plt.Axes.SetLimits(left: -1, right: 1, bottom: -1, top: 1.2);
+
+            // Konfigurasi tambahan
+            pie.ExplodeFraction = 0.05;
+            pie.SliceLabelDistance = 0.6;
+
+            plt.Legend.IsVisible = true;
+            plt.Legend.Alignment = Alignment.UpperLeft;
+
+            // Menghilangkan bingkai
+            plt.Axes.Frameless();
+            // FIX: Tambahkan baris ini untuk menghilangkan garis-garis petak
+            plt.HideGrid();
+
+            byte[] imageBytes = plt.GetImageBytes(600, 400);
+            return File(imageBytes, "image/png");
         }
     }
 }

@@ -1,0 +1,367 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 3 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet  restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1/" /p:OutDir="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0/" /p:OutputPath="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0/" /p:PublishDir="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\publish/" in D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1
+// command took 1.12 sec and exited with 0
+// start dotnet  build -c Release --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true /p:ArtifactsPath="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1/" /p:OutDir="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0/" /p:OutputPath="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0/" /p:PublishDir="D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\publish/" --output "D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0/" in D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1
+// command took 5.33 sec and exited with 0
+// ***** Done, took 00:00:06 (6.55 sec)   *****
+// Found 3 benchmarks:
+//   DapperBenchmark.'Dengan 'EXEC'': DefaultJob
+//   DapperBenchmark.'Dengan CommandType': DefaultJob
+//   DapperBenchmark.'EF Core (Tanpa SP)': DefaultJob
+
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: DapperBenchmark.'Dengan 'EXEC'': DefaultJob
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet ConsoleApp1-DefaultJob-1.dll --anonymousPipes 2072 1564 --benchmarkName DapperBenchmark.AdHocQuery --job Default --benchmarkId 0 in D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.2
+// Runtime=.NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 142600.00 ns, 142.6000 us/op
+WorkloadJitting  1: 1 op, 1074308300.00 ns, 1.0743 s/op
+
+OverheadJitting  2: 1 op, 600.00 ns, 600.0000 ns/op
+WorkloadJitting  2: 1 op, 6271100.00 ns, 6.2711 ms/op
+
+OverheadJitting  3: 16 op, 461600.00 ns, 28.8500 us/op
+WorkloadJitting  3: 16 op, 65798000.00 ns, 4.1124 ms/op
+
+WorkloadPilot    1: 16 op, 69506300.00 ns, 4.3441 ms/op
+WorkloadPilot    2: 32 op, 139662500.00 ns, 4.3645 ms/op
+WorkloadPilot    3: 64 op, 265879200.00 ns, 4.1544 ms/op
+WorkloadPilot    4: 128 op, 510060700.00 ns, 3.9848 ms/op
+
+OverheadWarmup   1: 128 op, 1300.00 ns, 10.1563 ns/op
+OverheadWarmup   2: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadWarmup   3: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadWarmup   4: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadWarmup   5: 128 op, 1200.00 ns, 9.3750 ns/op
+OverheadWarmup   6: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadWarmup   7: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadWarmup   8: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadWarmup   9: 128 op, 900.00 ns, 7.0313 ns/op
+
+OverheadActual   1: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadActual   2: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadActual   3: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual   4: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadActual   5: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual   6: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual   7: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual   8: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadActual   9: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  10: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  11: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  12: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  13: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  14: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  15: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  16: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadActual  17: 128 op, 900.00 ns, 7.0313 ns/op
+
+OverheadWarmup   1: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadWarmup   2: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadWarmup   3: 128 op, 1200.00 ns, 9.3750 ns/op
+OverheadWarmup   4: 128 op, 900.00 ns, 7.0313 ns/op
+OverheadWarmup   5: 128 op, 800.00 ns, 6.2500 ns/op
+OverheadWarmup   6: 128 op, 2100.00 ns, 16.4063 ns/op
+OverheadWarmup   7: 128 op, 900.00 ns, 7.0313 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 128 op, 519331000.00 ns, 4.0573 ms/op
+WorkloadActual   2: 128 op, 517895000.00 ns, 4.0461 ms/op
+WorkloadActual   3: 128 op, 503215600.00 ns, 3.9314 ms/op
+WorkloadActual   4: 128 op, 514612100.00 ns, 4.0204 ms/op
+WorkloadActual   5: 128 op, 505866800.00 ns, 3.9521 ms/op
+WorkloadActual   6: 128 op, 507625400.00 ns, 3.9658 ms/op
+WorkloadActual   7: 128 op, 508083800.00 ns, 3.9694 ms/op
+WorkloadActual   8: 128 op, 513192800.00 ns, 4.0093 ms/op
+WorkloadActual   9: 128 op, 510190900.00 ns, 3.9859 ms/op
+WorkloadActual  10: 128 op, 520107900.00 ns, 4.0633 ms/op
+WorkloadActual  11: 128 op, 498256500.00 ns, 3.8926 ms/op
+WorkloadActual  12: 128 op, 500911500.00 ns, 3.9134 ms/op
+WorkloadActual  13: 128 op, 509026600.00 ns, 3.9768 ms/op
+WorkloadActual  14: 128 op, 507597000.00 ns, 3.9656 ms/op
+WorkloadActual  15: 128 op, 533093100.00 ns, 4.1648 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 128 op, 519330100.00 ns, 4.0573 ms/op
+WorkloadResult   2: 128 op, 517894100.00 ns, 4.0460 ms/op
+WorkloadResult   3: 128 op, 503214700.00 ns, 3.9314 ms/op
+WorkloadResult   4: 128 op, 514611200.00 ns, 4.0204 ms/op
+WorkloadResult   5: 128 op, 505865900.00 ns, 3.9521 ms/op
+WorkloadResult   6: 128 op, 507624500.00 ns, 3.9658 ms/op
+WorkloadResult   7: 128 op, 508082900.00 ns, 3.9694 ms/op
+WorkloadResult   8: 128 op, 513191900.00 ns, 4.0093 ms/op
+WorkloadResult   9: 128 op, 510190000.00 ns, 3.9859 ms/op
+WorkloadResult  10: 128 op, 520107000.00 ns, 4.0633 ms/op
+WorkloadResult  11: 128 op, 498255600.00 ns, 3.8926 ms/op
+WorkloadResult  12: 128 op, 500910600.00 ns, 3.9134 ms/op
+WorkloadResult  13: 128 op, 509025700.00 ns, 3.9768 ms/op
+WorkloadResult  14: 128 op, 507596100.00 ns, 3.9656 ms/op
+// GC:  5 2 0 42063296 128
+// Threading:  384 0 128
+
+// AfterAll
+// Benchmark Process 13640 has exited with code 0.
+
+Mean = 3.982 ms, StdErr = 0.014 ms (0.35%), N = 14, StdDev = 0.052 ms
+Min = 3.893 ms, Q1 = 3.955 ms, Median = 3.973 ms, Q3 = 4.018 ms, Max = 4.063 ms
+IQR = 0.062 ms, LowerFence = 3.862 ms, UpperFence = 4.111 ms
+ConfidenceInterval = [3.923 ms; 4.041 ms] (CI 99.9%), Margin = 0.059 ms (1.48% of Mean)
+Skewness = 0.05, Kurtosis = 1.81, MValue = 2
+
+// ** Remained 2 (66,7%) benchmark(s) to run. Estimated finish 2025-07-24 9:38 (0h 0m from now) **
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: DapperBenchmark.'Dengan CommandType': DefaultJob
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet ConsoleApp1-DefaultJob-1.dll --anonymousPipes 2348 2332 --benchmarkName DapperBenchmark.StoredProcedureQuery --job Default --benchmarkId 1 in D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.2
+// Runtime=.NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 158900.00 ns, 158.9000 us/op
+WorkloadJitting  1: 1 op, 176193900.00 ns, 176.1939 ms/op
+
+WorkloadPilot    1: 2 op, 9428900.00 ns, 4.7145 ms/op
+WorkloadPilot    2: 3 op, 11389900.00 ns, 3.7966 ms/op
+WorkloadPilot    3: 4 op, 15452600.00 ns, 3.8632 ms/op
+WorkloadPilot    4: 5 op, 20875900.00 ns, 4.1752 ms/op
+WorkloadPilot    5: 6 op, 22940000.00 ns, 3.8233 ms/op
+WorkloadPilot    6: 7 op, 27927900.00 ns, 3.9897 ms/op
+WorkloadPilot    7: 8 op, 32410800.00 ns, 4.0514 ms/op
+WorkloadPilot    8: 9 op, 43194500.00 ns, 4.7994 ms/op
+WorkloadPilot    9: 10 op, 60889100.00 ns, 6.0889 ms/op
+WorkloadPilot   10: 11 op, 63007200.00 ns, 5.7279 ms/op
+WorkloadPilot   11: 12 op, 49643000.00 ns, 4.1369 ms/op
+WorkloadPilot   12: 13 op, 50198000.00 ns, 3.8614 ms/op
+WorkloadPilot   13: 14 op, 60457000.00 ns, 4.3184 ms/op
+WorkloadPilot   14: 15 op, 59214300.00 ns, 3.9476 ms/op
+WorkloadPilot   15: 16 op, 67212700.00 ns, 4.2008 ms/op
+WorkloadPilot   16: 32 op, 125383800.00 ns, 3.9182 ms/op
+WorkloadPilot   17: 64 op, 258503000.00 ns, 4.0391 ms/op
+WorkloadPilot   18: 128 op, 511261500.00 ns, 3.9942 ms/op
+
+OverheadWarmup   1: 128 op, 1100.00 ns, 8.5938 ns/op
+OverheadWarmup   2: 128 op, 700.00 ns, 5.4688 ns/op
+OverheadWarmup   3: 128 op, 700.00 ns, 5.4688 ns/op
+OverheadWarmup   4: 128 op, 600.00 ns, 4.6875 ns/op
+OverheadWarmup   5: 128 op, 600.00 ns, 4.6875 ns/op
+OverheadWarmup   6: 128 op, 600.00 ns, 4.6875 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 128 op, 520353700.00 ns, 4.0653 ms/op
+WorkloadActual   2: 128 op, 514345600.00 ns, 4.0183 ms/op
+WorkloadActual   3: 128 op, 517449300.00 ns, 4.0426 ms/op
+WorkloadActual   4: 128 op, 516095000.00 ns, 4.0320 ms/op
+WorkloadActual   5: 128 op, 521338200.00 ns, 4.0730 ms/op
+WorkloadActual   6: 128 op, 503974200.00 ns, 3.9373 ms/op
+WorkloadActual   7: 128 op, 515877100.00 ns, 4.0303 ms/op
+WorkloadActual   8: 128 op, 515529200.00 ns, 4.0276 ms/op
+WorkloadActual   9: 128 op, 503871700.00 ns, 3.9365 ms/op
+WorkloadActual  10: 128 op, 503533300.00 ns, 3.9339 ms/op
+WorkloadActual  11: 128 op, 524259400.00 ns, 4.0958 ms/op
+WorkloadActual  12: 128 op, 517583800.00 ns, 4.0436 ms/op
+WorkloadActual  13: 128 op, 519509600.00 ns, 4.0587 ms/op
+WorkloadActual  14: 128 op, 517555400.00 ns, 4.0434 ms/op
+WorkloadActual  15: 128 op, 514013300.00 ns, 4.0157 ms/op
+
+// AfterActualRun
+WorkloadResult   1: 128 op, 520353700.00 ns, 4.0653 ms/op
+WorkloadResult   2: 128 op, 514345600.00 ns, 4.0183 ms/op
+WorkloadResult   3: 128 op, 517449300.00 ns, 4.0426 ms/op
+WorkloadResult   4: 128 op, 516095000.00 ns, 4.0320 ms/op
+WorkloadResult   5: 128 op, 521338200.00 ns, 4.0730 ms/op
+WorkloadResult   6: 128 op, 503974200.00 ns, 3.9373 ms/op
+WorkloadResult   7: 128 op, 515877100.00 ns, 4.0303 ms/op
+WorkloadResult   8: 128 op, 515529200.00 ns, 4.0276 ms/op
+WorkloadResult   9: 128 op, 503871700.00 ns, 3.9365 ms/op
+WorkloadResult  10: 128 op, 503533300.00 ns, 3.9339 ms/op
+WorkloadResult  11: 128 op, 524259400.00 ns, 4.0958 ms/op
+WorkloadResult  12: 128 op, 517583800.00 ns, 4.0436 ms/op
+WorkloadResult  13: 128 op, 519509600.00 ns, 4.0587 ms/op
+WorkloadResult  14: 128 op, 517555400.00 ns, 4.0434 ms/op
+WorkloadResult  15: 128 op, 514013300.00 ns, 4.0157 ms/op
+// GC:  5 2 0 42083776 128
+// Threading:  384 0 128
+
+// AfterAll
+// Benchmark Process 12784 has exited with code 0.
+
+Mean = 4.024 ms, StdErr = 0.013 ms (0.32%), N = 15, StdDev = 0.050 ms
+Min = 3.934 ms, Q1 = 4.017 ms, Median = 4.032 ms, Q3 = 4.051 ms, Max = 4.096 ms
+IQR = 0.034 ms, LowerFence = 3.966 ms, UpperFence = 4.102 ms
+ConfidenceInterval = [3.970 ms; 4.077 ms] (CI 99.9%), Margin = 0.054 ms (1.33% of Mean)
+Skewness = -0.74, Kurtosis = 2.29, MValue = 2
+
+// ** Remained 1 (33,3%) benchmark(s) to run. Estimated finish 2025-07-24 9:38 (0h 0m from now) **
+Setup power plan (GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c FriendlyName: High performance)
+// **************************
+// Benchmark: DapperBenchmark.'EF Core (Tanpa SP)': DefaultJob
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet ConsoleApp1-DefaultJob-1.dll --anonymousPipes 2360 2052 --benchmarkName DapperBenchmark.EfCoreLinqQuery --job Default --benchmarkId 2 in D:\ASPdotNet_Project\WebApplication1\ConsoleApp1\bin\Release\net8.0\ConsoleApp1-DefaultJob-1\bin\Release\net8.0
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// BenchmarkDotNet v0.15.2
+// Runtime=.NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2
+// GC=Concurrent Workstation
+// HardwareIntrinsics=AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 136000.00 ns, 136.0000 us/op
+WorkloadJitting  1: 1 op, 26907937200.00 ns, 26.9079 s/op
+
+OverheadWarmup   1: 1 op, 800.00 ns, 800.0000 ns/op
+OverheadWarmup   2: 1 op, 600.00 ns, 600.0000 ns/op
+OverheadWarmup   3: 1 op, 200.00 ns, 200.0000 ns/op
+OverheadWarmup   4: 1 op, 200.00 ns, 200.0000 ns/op
+OverheadWarmup   5: 1 op, 200.00 ns, 200.0000 ns/op
+OverheadWarmup   6: 1 op, 200.00 ns, 200.0000 ns/op
+OverheadWarmup   7: 1 op, 200.00 ns, 200.0000 ns/op
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 25031738100.00 ns, 25.0317 s/op
+WorkloadActual   2: 1 op, 25071301600.00 ns, 25.0713 s/op
+WorkloadActual   3: 1 op, 25022262900.00 ns, 25.0223 s/op
+WorkloadActual   4: 1 op, 25023615800.00 ns, 25.0236 s/op
+WorkloadActual   5: 1 op, 25014644300.00 ns, 25.0146 s/op
+WorkloadActual   6: 1 op, 25027033400.00 ns, 25.0270 s/op
+WorkloadActual   7: 1 op, 25014462900.00 ns, 25.0145 s/op
+WorkloadActual   8: 1 op, 25018101800.00 ns, 25.0181 s/op
+WorkloadActual   9: 1 op, 25024173900.00 ns, 25.0242 s/op
+WorkloadActual  10: 1 op, 25023097800.00 ns, 25.0231 s/op
+WorkloadActual  11: 1 op, 25024910300.00 ns, 25.0249 s/op
+WorkloadActual  12: 1 op, 25027401900.00 ns, 25.0274 s/op
+WorkloadActual  13: 1 op, 25021337000.00 ns, 25.0213 s/op
+WorkloadActual  14: 1 op, 25011782500.00 ns, 25.0118 s/op
+WorkloadActual  15: 1 op, 25029922200.00 ns, 25.0299 s/op
+
+// AfterActualRun
+WorkloadResult   1: 1 op, 25031738100.00 ns, 25.0317 s/op
+WorkloadResult   2: 1 op, 25022262900.00 ns, 25.0223 s/op
+WorkloadResult   3: 1 op, 25023615800.00 ns, 25.0236 s/op
+WorkloadResult   4: 1 op, 25014644300.00 ns, 25.0146 s/op
+WorkloadResult   5: 1 op, 25027033400.00 ns, 25.0270 s/op
+WorkloadResult   6: 1 op, 25014462900.00 ns, 25.0145 s/op
+WorkloadResult   7: 1 op, 25018101800.00 ns, 25.0181 s/op
+WorkloadResult   8: 1 op, 25024173900.00 ns, 25.0242 s/op
+WorkloadResult   9: 1 op, 25023097800.00 ns, 25.0231 s/op
+WorkloadResult  10: 1 op, 25024910300.00 ns, 25.0249 s/op
+WorkloadResult  11: 1 op, 25027401900.00 ns, 25.0274 s/op
+WorkloadResult  12: 1 op, 25021337000.00 ns, 25.0213 s/op
+WorkloadResult  13: 1 op, 25011782500.00 ns, 25.0118 s/op
+WorkloadResult  14: 1 op, 25029922200.00 ns, 25.0299 s/op
+// GC:  0 0 0 2169504 1
+// Threading:  52 0 1
+
+// AfterAll
+// Benchmark Process 4408 has exited with code 0.
+
+Mean = 25.022 s, StdErr = 0.002 s (0.01%), N = 14, StdDev = 0.006 s
+Min = 25.012 s, Q1 = 25.019 s, Median = 25.023 s, Q3 = 25.027 s, Max = 25.032 s
+IQR = 0.008 s, LowerFence = 25.008 s, UpperFence = 25.038 s
+ConfidenceInterval = [25.016 s; 25.029 s] (CI 99.9%), Margin = 0.007 s (0.03% of Mean)
+Skewness = -0.29, Kurtosis = 1.89, MValue = 2
+
+// ** Remained 0 (0,0%) benchmark(s) to run. Estimated finish 2025-07-24 9:45 (0h 0m from now) **
+Successfully reverted power plan (GUID: 95821fb9-eb86-40ba-bd00-2927b785d386 FriendlyName: ASUS Recommended)
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\DapperBenchmark-report.csv
+  BenchmarkDotNet.Artifacts\results\DapperBenchmark-report-github.md
+  BenchmarkDotNet.Artifacts\results\DapperBenchmark-report.html
+
+// * Detailed results *
+DapperBenchmark.'Dengan 'EXEC'': DefaultJob
+Runtime = .NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 3.982 ms, StdErr = 0.014 ms (0.35%), N = 14, StdDev = 0.052 ms
+Min = 3.893 ms, Q1 = 3.955 ms, Median = 3.973 ms, Q3 = 4.018 ms, Max = 4.063 ms
+IQR = 0.062 ms, LowerFence = 3.862 ms, UpperFence = 4.111 ms
+ConfidenceInterval = [3.923 ms; 4.041 ms] (CI 99.9%), Margin = 0.059 ms (1.48% of Mean)
+Skewness = 0.05, Kurtosis = 1.81, MValue = 2
+-------------------- Histogram --------------------
+[3.864 ms ; 4.077 ms) | @@@@@@@@@@@@@@
+---------------------------------------------------
+
+DapperBenchmark.'Dengan CommandType': DefaultJob
+Runtime = .NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 4.024 ms, StdErr = 0.013 ms (0.32%), N = 15, StdDev = 0.050 ms
+Min = 3.934 ms, Q1 = 4.017 ms, Median = 4.032 ms, Q3 = 4.051 ms, Max = 4.096 ms
+IQR = 0.034 ms, LowerFence = 3.966 ms, UpperFence = 4.102 ms
+ConfidenceInterval = [3.970 ms; 4.077 ms] (CI 99.9%), Margin = 0.054 ms (1.33% of Mean)
+Skewness = -0.74, Kurtosis = 2.29, MValue = 2
+-------------------- Histogram --------------------
+[3.907 ms ; 4.000 ms) | @@@
+[4.000 ms ; 4.122 ms) | @@@@@@@@@@@@
+---------------------------------------------------
+
+DapperBenchmark.'EF Core (Tanpa SP)': DefaultJob
+Runtime = .NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 25.022 s, StdErr = 0.002 s (0.01%), N = 14, StdDev = 0.006 s
+Min = 25.012 s, Q1 = 25.019 s, Median = 25.023 s, Q3 = 25.027 s, Max = 25.032 s
+IQR = 0.008 s, LowerFence = 25.008 s, UpperFence = 25.038 s
+ConfidenceInterval = [25.016 s; 25.029 s] (CI 99.9%), Margin = 0.007 s (0.03% of Mean)
+Skewness = -0.29, Kurtosis = 1.89, MValue = 2
+-------------------- Histogram --------------------
+[25.009 s ; 25.035 s) | @@@@@@@@@@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet v0.15.2, Windows 11 (10.0.22631.5624/23H2/2023Update/SunValley3)
+AMD Ryzen 5 5600H with Radeon Graphics 3.30GHz, 1 CPU, 12 logical and 6 physical cores
+.NET SDK 9.0.302
+  [Host]     : .NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.18 (8.0.1825.31117), X64 RyuJIT AVX2
+
+
+| Method               | Mean          | Error     | StdDev    | Gen0    | Gen1    | Allocated  |
+|--------------------- |--------------:|----------:|----------:|--------:|--------:|-----------:|
+| 'Dengan 'EXEC''      |      3.982 ms | 0.0589 ms | 0.0523 ms | 39.0625 | 15.6250 |  320.92 KB |
+| 'Dengan CommandType' |      4.024 ms | 0.0535 ms | 0.0501 ms | 39.0625 | 15.6250 |  321.07 KB |
+| 'EF Core (Tanpa SP)' | 25,022.463 ms | 6.6893 ms | 5.9299 ms |       - |       - | 2118.66 KB |
+
+// * Hints *
+Outliers
+  DapperBenchmark.'Dengan 'EXEC'': Default      -> 1 outlier  was  removed (4.16 ms)
+  DapperBenchmark.'Dengan CommandType': Default -> 3 outliers were detected (3.93 ms..3.94 ms)
+  DapperBenchmark.'EF Core (Tanpa SP)': Default -> 1 outlier  was  removed (25.07 s)
+
+// * Legends *
+  Mean      : Arithmetic mean of all measurements
+  Error     : Half of 99.9% confidence interval
+  StdDev    : Standard deviation of all measurements
+  Gen0      : GC Generation 0 collects per 1000 operations
+  Gen1      : GC Generation 1 collects per 1000 operations
+  Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  1 ms      : 1 Millisecond (0.001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:07:31 (451.25 sec), executed benchmarks: 3
+
+Global total time: 00:07:39 (459.16 sec), executed benchmarks: 3
+// * Artifacts cleanup *
+Artifacts cleanup is finished

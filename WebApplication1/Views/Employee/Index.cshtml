@@ -1,0 +1,77 @@
+﻿@using WebApplication1.ViewModels
+@model IEnumerable<EmployeeVM>
+
+@{
+    ViewData["Title"] = "Employee Data";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h2 class="mb-4">Employee Data</h2>
+        <p>
+            <a asp-controller="Employee" asp-action="Create" class="btn btn-success">
+                <i class="fas fa-plus"></i> Add New Employee
+            </a>
+        </p>
+    </div>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="table-responsive">
+        <table class="table table-bordered border-dark">
+            <thead>
+                <tr class="text-white bg-se-green">
+                    <th class="text-center align-middle">SESA ID</th>
+                    <th class="text-center align-middle">Name</th>
+                    <th class="text-center align-middle">Gender</th>
+                    <th class="text-center align-middle">Department</th>
+                    <th class="text-center align-middle">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">@item.SesaId</td>
+                        <td class="align-middle">@item.Name</td>
+                        <td class="align-middle">@item.GenderNm</td>
+                        <td class="align-middle">@item.DepartmentNm</td>
+                        <td class="text-center align-middle">
+                            <a asp-controller="Employee" asp-action="Edit" asp-route-id="@item.SesaId" class="btn btn-sm btn-warning text-dark fw-bold mx-1">Edit</a>
+                            <button class="btn btn-sm btn-danger fw-bold mx-1" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal-@item.SesaId">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@foreach (var item in Model)
+{
+    <div class="modal fade" id="deleteConfirmModal-@item.SesaId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-secondary">
+                <div class="modal-body text-center p-4">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center border border-warning border-3 rounded-circle" style="width: 70px; height: 70px;">
+                        <span class="text-warning display-4 fw-bold">!</span>
+                    </div>
+                    <h4 class="fw-bold" id="deleteConfirmModalLabel">Delete this data?</h4>
+                    <p class="text-secondary">Are you sure you want to delete <strong>@item.Name</strong>?</p>
+                    <div class="mt-4">
+                        <form asp-action="Delete" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="sesaId" value="@item.SesaId" />
+                            <button type="submit" class="btn btn-success fw-bold mx-2 px-4">Yes!</button>
+                            <button type="button" class="btn btn-danger fw-bold mx-2 px-4" data-bs-dismiss="modal">No!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

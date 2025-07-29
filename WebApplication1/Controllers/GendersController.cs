@@ -13,8 +13,8 @@ namespace WebApplication1.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allGenders = await _context.Genders
-                .OrderBy(item => item.GenderCode)
+            var allGenders = await _context.GenderVM
+                .FromSqlRaw("EXEC GetGender")
                 .ToListAsync();
             return View(allGenders);
         }

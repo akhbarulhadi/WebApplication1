@@ -90,6 +90,61 @@ namespace WebApplication1.Migrations
                     b.ToTable("Genders");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.ViewModels.DepartmentVM", b =>
+                {
+                    b.Property<string>("DepartmentCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DepartmentNm")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("DepartmentVM");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.ViewModels.EmployeeVM", b =>
+                {
+                    b.Property<DateOnly>("BirthDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("DepartmentCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DepartmentNm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GenderCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("GenderNm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SesaId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("EmployeeVM");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.ViewModels.GenderVM", b =>
+                {
+                    b.Property<string>("GenderCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("GenderNm")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("GenderVM");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Employee", b =>
                 {
                     b.HasOne("WebApplication1.Models.Genders", "Genders")
